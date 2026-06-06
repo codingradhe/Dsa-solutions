@@ -1,3 +1,4 @@
+
 // *** 🖊️🖊️🖊️ 1. you can use free or delete in cpp and garbage-collector in java;***
 // *** 🖊️🖊🖊️ 2.
 #include <bits/stdc++.h>
@@ -67,6 +68,27 @@ node* deleteKthElements(node* head,int k){
   };
   return head;
 }
+///***💘💘💘delete a val of LL ***
+node* deleteByValInLL(node* head,int val){
+  if(head == nullptr) return head;
+  if(head->data==val){
+    node* temp = head;
+    head = head->next;
+    delete temp;
+  }
+  node* temp = head;
+  node* pre = nullptr;
+  while(temp != nullptr){
+    if(temp->data==val){
+      pre->next = pre->next->next;
+      delete temp;
+      break;
+    }
+    pre = temp;
+    temp = temp->next;
+  };
+  return head;
+}
 int main() {
   int n;cin>>n;
   vector<int>v(n);
@@ -76,7 +98,10 @@ int main() {
   node* head = convertArrToLL(v);
   head = deleteHead(head);
   deleteTailOfLL(head);
-  deleteKthElements(head,3);
+  int k;cin>>k;//enter val of k at which you want to delete kth node..  
+  deleteKthElements(head,k);
+  int val;cin>>val;//enter val of to delete it from LL..  
+  deleteByValInLL(head,val);
   node* temp = head;
   while(temp){
     cout<<temp->data<<" ";
@@ -84,5 +109,3 @@ int main() {
   }
   return 0;
 }
-
-
