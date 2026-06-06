@@ -1,0 +1,9 @@
+.config/
+.ssh/
+storage/
+.gitconfig
+.lesshst
+ls
+makeNode
+cpp/a.out
+cpp/main
