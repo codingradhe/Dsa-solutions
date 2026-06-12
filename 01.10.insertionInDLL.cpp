@@ -1,4 +1,4 @@
-// *** 🖊️🖊️🖊️ 1. you can use free or delete in cpp and garbage-collector in java;***.
+// *** 🖊️🖊️🖊️ 1. you can use free or delete in cpp and garbage-collector in java;***..
 #include <bits/stdc++.h>
 using namespace std;
 class node{
