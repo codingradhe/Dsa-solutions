@@ -30,3 +30,19 @@ public:
         return newhead;
     }
 };
+// *** ♥️♥️♥️optimal solution for this problem ♥️♥️♥️
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head == nullptr) return nullptr;
+        ListNode* temp = head;
+        ListNode* pre = nullptr;
+        while(temp!=nullptr){
+            ListNode* front = temp->next;
+            temp->next = pre;
+            pre = temp;
+            temp = front;
+        }
+        return pre;
+    }
+};
