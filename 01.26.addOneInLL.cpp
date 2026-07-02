@@ -41,5 +41,28 @@ class Solution {
 	}
 };
 
+// backtracking solution
+class Solution {
+	public:
+	int helper(Node* head){
+	    if(head ==nullptr) return 1;
+	    int carry = helper(head->next);
+	    head->data += carry;
+	    if(head->data <10) return 0;
+	    head->data = 0;
+	    return 1;
+	}
+	Node* addOne(Node* head) {
+		if (head == nullptr) return nullptr;
+		Node* temp = head;
+		int carry = helper(temp);
+		if(carry){
+		    Node* newhead = new Node(1);
+		    newhead->next = head;
+		    return newhead;
+		}
+		return head;
+	}
+};
 
 
