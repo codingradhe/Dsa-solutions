@@ -36,13 +36,13 @@ public:
     ListNode* reverseList(ListNode* head) {
         if(head == nullptr) return nullptr;
         ListNode* temp = head;
-        ListNode* pre = nullptr;
+        ListNode* prev = nullptr;
         while(temp!=nullptr){
             ListNode* front = temp->next;
-            temp->next = pre;
-            pre = temp;
+            temp->next = prev;
+            prev = temp;
             temp = front;
         }
-        return pre;
+        return prev;
     }
 };
