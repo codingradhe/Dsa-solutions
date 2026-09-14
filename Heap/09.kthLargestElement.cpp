@@ -23,3 +23,16 @@ public:
         return 0;
     }
 };
+// ♥️♥️♥️♥️ best method to understand min heap
+class Solution {
+public:
+    int findKthLargest(vector<int>& v, int k) {
+        priority_queue<int,vector<int>,greater<int>>q;
+        int  n = v.size();
+        for(int i = 0;i < n ;i++){
+            q.push(v[i]);
+            if(q.size()>k) q.pop();
+        }
+        return q.top();
+    }
+};
