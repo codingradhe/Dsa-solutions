@@ -23,7 +23,7 @@ public:
         return 0;
     }
 };
-// ♥️♥️♥️♥️ best method to understand min heap
+// ♥️♥️♥️♥️ best meth.od to understand min heap
 class Solution {
 public:
     int findKthLargest(vector<int>& v, int k) {
