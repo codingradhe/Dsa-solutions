@@ -28,3 +28,27 @@ public:
         return ans;
     }
 };
+// another better sotution in terns of TC and Sc
+typedef pair<int,int> p; 
+class Solution {
+public:
+    int minSetSize(vector<int>& arr) {
+        priority_queue<int,vector<int>,greater<int>>q;
+        int n = arr.size();
+        map<int,int>mp;
+        for(auto it:arr){
+            mp[it]++;
+        }
+        int sum = 0,ans = 0;
+        for(auto it:mp){
+            int t = it.second;
+            q.push(t);
+            sum += t;
+            while(sum - q.top() >= n/2){
+                sum -= q.top();
+                q.pop();
+            }
+        }
+        return q.size();
+    }
+};
