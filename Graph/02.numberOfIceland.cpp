@@ -8,6 +8,7 @@
 // connecting adjacent lands horizontally or vertically.
 //   You may assume all four edges of the grid are
 // all surrounded by water.
+// vecy brute folution 
 class Solution {
 public:
     void dfs(int node,vector<vector<int>>&adj,vector<int>&vis){
@@ -50,5 +51,31 @@ public:
             }
         }
         return ans;
+    }
+};
+// best approach 
+class Solution {
+private:
+    void dfs(int row,int col,vector<int>&delrow,vector<int>&delcol,vector<vector<int>>&mat,int color){
+        int n = mat.size(),m = mat[0].size();
+        int move = mat[row][col];
+        mat[row][col] = color;
+        for(int i = 0;i < 4; i++){
+            int nrow = row + delrow[i];
+            int ncol = col + delcol[i];
+            if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && mat[nrow][ncol] == move && mat[nrow][ncol] != color){
+                dfs(nrow,ncol,delrow,delcol,mat,color);
+            }
+        }
+        return ;
+    }
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        vector<vector<int>>mat = image;
+        int change = image[sr][sc];
+        vector<int>delrow = {-1,0,1,0};
+        vector<int>delcol = {0,1,0,-1};
+        dfs(sr,sc,delrow,delcol,mat,color);
+        return mat;
     }
 };
