@@ -25,6 +25,8 @@
 
 // ♥️♥️ a bipartite graph is that in which  there is a cycle wiht odd number of ode 
 
+
+// bfs traversal 
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& mat) {
@@ -54,6 +56,36 @@ public:
             }
         }
 
+        return true;
+    }
+};
+
+// ♥️♥️ dfs traversal 
+
+class Solution {
+public:
+    bool check(int node,int  pre,vector<int>&vis,vector<vector<int>>&mat){
+        if(pre == -1)  vis[node] = 0;
+        else 
+        {
+            vis[node] = !pre;
+        }
+        int color = vis[node];
+        for(auto it:mat[node]){
+            if(vis[it] == -1){
+                vis[it] = color;
+                if(!check(it,color,vis,mat)) return false;
+            }
+            else if(vis[it] == vis[node]) return false;
+        }
+        return true;
+    }
+    bool isBipartite(vector<vector<int>>& mat){
+        int  n  = mat.size();
+        vector<int>vis(n,-1);
+        for(int i = 0; i < n; i++){
+            if(vis[i] == -1 &&check(i,0,vis,mat) == false) return false;
+        }
         return true;
     }
 };
