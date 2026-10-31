@@ -1,15 +1,15 @@
-109. Dijkstra's algorithm
-Given a weighted, undirected graph of V vertices, numbered from 0 to V-1,
-  and an 2D vector/array which represents the edges:
+// 109. Dijkstra's algorithm
+// Given a weighted, undirected graph of V vertices, numbered from 0 to V-1,
+//   and an 2D vector/array which represents the edges:
 
-Each entry in edges[i] is of the form [u, v, weight], where:
+// Each entry in edges[i] is of the form [u, v, weight], where:
 
-u, v → represents the vertex having undirected edge between them
-weight → the weight of the edge between u and v
-Given a source node S. Find the shortest distance of all the vertex 
-from the source vertex S. Return a list of integers denoting shortest
-distance between each node and source vertex S. If a vertex is not reachable
-from source then its distance will be 109.
+// u, v → represents the vertex having undirected edge between them
+// weight → the weight of the edge between u and v
+// Given a source node S. Find the shortest distance of all the vertex 
+// from the source vertex S. Return a list of integers denoting shortest
+// distance between each node and source vertex S. If a vertex is not reachable
+// from source then its distance will be 109.
 
 class Solution{
 public:
