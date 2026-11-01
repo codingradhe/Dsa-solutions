@@ -12,6 +12,9 @@
 // Note: On IDE only the total sum of weights will be shown as output. As there might
 // be more than one path (The path will be validated through driver code and If wrong then output shown will be -2.).
 
+class Solution{
+public:
+    vector<int> shortestPath(int n, int m, vector<vector<int>> &edg) {
         vector<vector<pair<int,int>>>adj(n + 1);
         for(auto it: edg){
             int u = it[0];
